@@ -12,6 +12,7 @@ import (
 	"github.com/yuin/goldmark"
 )
 
+var domain = os.Getenv("DOMAIN")
 var apiKey = os.Getenv("MAILGUN_APIKEY")
 
 type Issue struct {
@@ -46,7 +47,7 @@ func (list List) Send(issue Issue) {
 		log.Printf("Error sending issue \"%s\": %v", issue.Subject, err)
 	}
 
-	mg := mailgun.NewMailgun(list.Name, apiKey)
+	mg := mailgun.NewMailgun(domain, apiKey)
 
 	vals := issueTemplateValues{}
 	for _, scriber := range list.ActiveSubscribers() {

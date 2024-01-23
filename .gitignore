@@ -1,4 +1,5 @@
 # Lovecroft
+.env
 db/
 lovecroft
 lovecroft-*

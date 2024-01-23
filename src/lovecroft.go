@@ -10,6 +10,7 @@ import (
 	"time"
 
 	"github.com/gorilla/mux"
+	_ "github.com/joho/godotenv/autoload"
 )
 
 func sendError(w http.ResponseWriter, err error) {
